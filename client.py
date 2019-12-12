@@ -3,6 +3,7 @@ import sys
 
 if len(sys.argv) < 3:
     print("python3 client.py hostname port")
+    sys.exit(1)
 # configure client socket
 HOST = sys.argv[1]
 PORT = int(sys.argv[2])
