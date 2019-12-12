@@ -10,7 +10,6 @@ if (len(sys.argv) < 2):
 
 # configure server socket
 BUFFER_SIZE = 2048
-MB = 2**20
 HOST = 'localhost'
 PORT = int(sys.argv[1])
 serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -46,9 +45,9 @@ while True:
     # if one second passed, add received size to log
     stop = time.time()
     if stop - start >= 1:
-        dataRcvd_mb = int(dataRcvd*8 / int((stop-start)*MB))
+        dataRcvd_bits_s = int(dataRcvd*8 / int((stop-start)))
         timeStamp = time.strftime("%H:%M:%S",time.localtime(stop))
-        logFile.write("[{}] {} Mbits/s \n".format(timeStamp,dataRcvd_mb))
+        logFile.write("[{}] {} bits/s \n".format(timeStamp,dataRcvd_bits_s))
         dataRcvd = 0
         start = time.time()
 
