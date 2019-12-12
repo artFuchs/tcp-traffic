@@ -47,7 +47,7 @@ while True:
     if stop - start >= 1:
         dataRcvd_bits_s = int(dataRcvd*8 / int((stop-start)))
         timeStamp = time.strftime("%H:%M:%S",time.localtime(stop))
-        logFile.write("[{}] {} bits/s \n".format(timeStamp,dataRcvd_bits_s))
+        logFile.write("{} {} bits/s \n".format(timeStamp,dataRcvd_bits_s))
         dataRcvd = 0
         start = time.time()
 
